@@ -18,6 +18,11 @@ body {
 .calculator {
   width: 340px;
   max-width: 98vw;
+  /* NE treba align-items: center */
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  /* ukloni align-items: center; */
   transition: width 0.25s;
 }
 
@@ -123,20 +128,14 @@ body {
 /* SCIENTIFIC BUTTONS */
 .sci-buttons {
   display: none;
-  flex-direction: column;
-  flex-wrap: wrap;
-  max-height: 340px;
-  min-width: 135px;
-  margin-right: 12px;
-  justify-content: center;
-  gap: 10px 12px;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 11px 10px;
   transition: opacity 0.2s;
+  margin-right: 15px;
 }
-
 .sci-buttons.active {
-  display: flex;
+  display: grid;
 }
-
 .sci-btn {
   background: #ececec;
   border: none;
@@ -145,23 +144,26 @@ body {
   color: #3e3e3e;
   width: 68px;
   height: 37px;
-  margin-bottom: 3px;
-  margin-right: 2px;
   cursor: pointer;
   font-family: inherit;
   transition: background 0.12s, color 0.12s;
+  text-align: center;
+  outline: none;
 }
-
 .sci-btn:active {
   background: #dbdbdb;
+}
+.sci-btn:focus {
+  outline: 2px solid #38b000;
 }
 
 /* ----- Dugmad kalkulatora ----- */
 .calc-buttons {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, 62px);  /* Fiksna širina kolona */
   grid-gap: 14px;
   margin-top: 6px;
+  justify-content: center;   /* Centriraj grid */
 }
 
 .btn {
