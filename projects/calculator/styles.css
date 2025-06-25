@@ -81,26 +81,41 @@ body {
   background: #e2e2e2;
 }
 
+.toolbar-icon {
+  width: 30px;
+  height: 30px;
+  display: block;
+  margin: 0 auto;
+  object-fit: contain;
+  filter: grayscale(30%);
+  transition: filter 0.2s;
+}
+
+.toolbar-btn:hover .toolbar-icon {
+  filter: grayscale(0%) brightness(1.2);
+}
+
 .toolbar-spacer {
   flex: 1;
   min-width: 12px;
 }
 
 .backspace-btn {
-  background: #f39c12;
+  /* Ove vrednosti su iste kao kod drugih toolbar dugmadi, za ujednačenost */
+  background: #f1f1f1;
   color: #fff;
-  font-size: 1.2em;
-  padding: 8px 12px;
+  font-size: 1em;
+  padding: 6px 9px;
   margin-right: 0;
 }
 
 .backspace-btn:active {
-  background: #d9770a;
+  background: #e2e2e2;
 }
 
 .calc-buttons {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* Dugmad automatski popunjavaju širinu */
+  grid-template-columns: repeat(4, 1fr); /* Dugmad popunjavaju širinu */
   grid-gap: 11px;
 }
 
@@ -240,18 +255,4 @@ body {
 }
 .clear-history-btn:hover {
   background: #c0392b;
-}
-
-.toolbar-icon {
-  width: 30px;
-  height: 30px;
-  display: block;
-  margin: 0 auto;
-  object-fit: contain;
-  /* Za lep hover efekat možeš i ovo: */
-  filter: grayscale(30%);
-  transition: filter 0.2s;
-}
-.toolbar-btn:hover .toolbar-icon {
-  filter: grayscale(0%) brightness(1.2);
 }
