@@ -16,22 +16,9 @@ body {
 }
 
 .calculator {
-  width: auto;
+  width: 340px;
   max-width: 98vw;
-  /* NE treba align-items: center */
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  /* ukloni align-items: center; */
   transition: width 0.25s;
-}
-
-.calc-body {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: center;
 }
 
 .calc-display {
@@ -168,10 +155,17 @@ body {
 /* ----- Dugmad kalkulatora ----- */
 .calc-buttons {
   display: grid;
-  grid-template-columns: repeat(4, 62px);  /* Fiksna širina kolona */
+  grid-template-columns: repeat(4, 62px); /* ili koliko su ti dugmad */
   grid-gap: 14px;
   margin-top: 6px;
-  justify-content: center;   /* Centriraj grid */
+  justify-content: center; /* CENTRIRA grid u roditelju */
+}
+
+.calc-body {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
 }
 
 .btn {
@@ -190,11 +184,9 @@ body {
   justify-content: center;
   outline: none;
 }
-
 .btn:active {
   box-shadow: none;
 }
-
 .btn[data-action="clear"], .btn[data-action="open-paren"], .btn[data-action="close-paren"], .btn[data-action="percent"] {
   background: #ececec;
   color: #3e3e3e;
@@ -205,7 +197,6 @@ body {
 .btn[data-action="percent"]:active {
   background: #e1e1e1;
 }
-
 .btn:not(.operator):not(.equals):not([data-action="clear"]):not([data-action="open-paren"]):not([data-action="close-paren"]):not([data-action="percent"]) {
   background: #fff;
   color: #333;
@@ -213,7 +204,6 @@ body {
 .btn:not(.operator):not(.equals):not([data-action="clear"]):not([data-action="open-paren"]):not([data-action="close-paren"]):not([data-action="percent"]):active {
   background: #f0f0f0;
 }
-
 .btn.operator {
   background: #9c9c9c;
   color: #fff;
@@ -221,7 +211,6 @@ body {
 .btn.operator:active {
   background: #787878;
 }
-
 .btn.equals {
   background: #38b000;
   color: #fff;
@@ -236,7 +225,7 @@ body {
   .calculator-container { padding: 9vw 0 4vw 0; }
   .calculator { width: 99vw !important; }
   .calc-body { flex-direction: column; }
-  .sci-buttons { flex-direction: row; max-height: none; min-width: 0; margin-right: 0; margin-bottom: 15px; gap: 9px 3px; justify-content: flex-start;}
+  .sci-buttons { grid-template-columns: repeat(3, 1fr); margin-right: 0; margin-bottom: 15px; gap: 9px 3px; justify-content: flex-start;}
   .btn, .sci-btn { width: 16vw; height: 16vw; min-width: 48px; min-height: 48px; font-size: 1.07em;}
 }
 
@@ -251,11 +240,9 @@ body {
   align-items: center;
   justify-content: center;
 }
-
 .history-modal.open {
   display: flex;
 }
-
 .history-content {
   background: #fff;
   border-radius: 14px;
@@ -266,7 +253,6 @@ body {
   box-shadow: 0 4px 32px rgba(0,0,0,0.10);
   overflow-y: auto;
 }
-
 .history-header {
   display: flex;
   align-items: center;
@@ -277,7 +263,6 @@ body {
   border-bottom: 1px solid #eee;
   padding-bottom: 8px;
 }
-
 .close-history {
   background: none;
   border: none;
@@ -285,7 +270,6 @@ body {
   color: #e74c3c;
   cursor: pointer;
 }
-
 .history-list {
   list-style: none;
   padding: 0;
@@ -293,7 +277,6 @@ body {
   max-height: 45vh;
   overflow-y: auto;
 }
-
 .history-list li {
   margin-bottom: 8px;
   border-bottom: 1px solid #f1f1f1;
@@ -313,7 +296,6 @@ body {
   font-weight: bold;
   color: #333;
 }
-
 .clear-history-btn {
   margin: 18px auto 0 auto;
   display: block;

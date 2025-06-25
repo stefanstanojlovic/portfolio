@@ -218,7 +218,6 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
     }
 
-    // === Sačuvaj u istoriju, bilo da je Error ili dobar rezultat ===
     result = value !== undefined && value !== 'Error' && !isNaN(value)
       ? value.toString() : 'Error';
 
@@ -261,9 +260,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Dummy dugmad - unit converter, swap, rad mode (za kasnije)
-  document.getElementById('unit-btn').addEventListener('click', () => {});
-  
   // SCIENTIFIC MODE: Prikaži/skrivaj stub
   const sciBtnToggle = document.getElementById('sci-btn');
   const sciPanel = document.getElementById('sci-buttons');
@@ -309,4 +305,3 @@ document.addEventListener('DOMContentLoaded', () => {
 
   updateDisplay();
 });
-// ====== END OF CALCULATOR LOGIC ======
