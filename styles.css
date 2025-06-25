@@ -525,31 +525,22 @@ all-projects-btn {
 }
 
 .projects-button {
-  width: 100%;
   display: flex;
   justify-content: center;
-  align-items: center;
-  margin: 32px 0 0 0; /* gore 32px, ostalo 0 */
+  margin-top: 32px;
 }
-
 .all-projects-btn {
-  display: inline-block;
-  background-color: #f39c12;
+  padding: 12px 32px;
+  background: #0077b5;
   color: #fff;
-  font-size: 20px;
-  padding: 14px 36px;
-  border-radius: 6px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
   text-decoration: none;
-  font-weight: bold;
-  letter-spacing: 1px;
-  transition: background 0.25s, box-shadow 0.25s;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.07);
+  transition: background 0.2s;
 }
-
 .all-projects-btn:hover {
-  background-color: #d9770a;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.13);
-  color: #fff;
+  background: #015080;
 }
 
 .blogs-container {
