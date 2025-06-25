@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stefan | Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <!-- Navigacija -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#hero"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="#about"><i class="fas fa-user"></i> About Me</a></li>
+                <li><a href="#projects"><i class="fas fa-code"></i> Projects</a></li>
+                <li><a href="#skills"><i class="fas fa-tools"></i> Skills</a></li>
+                <li><a href="#blog"><i class="fas fa-blog"></i> Blog</a></li>
+                <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+            </ul>
+        </nav>
+        <button id="hamburger" aria-label="Open navigation">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+    </header>
+    
+    <!-- Hero sekcija -->
+    <section id="hero" data-aos="fade-up"
+     data-aos-duration="3000">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Hello, I am Cefi!</h1>
+                <p>Aspiring Frontend Developer</p>
+                <div class="social-links">
+                    <a href="https://github.com/tvojprofil" target="_blank" aria-label="GitHub">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+                    <a href="https://linkedin.com/in/tvojprofil" target="_blank" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin"></i> LinkedIn
+                    </a>
+                    <a href="https://twitter.com/tvojprofil" target="_blank" aria-label="Twitter">
+                        <i class="fab fa-twitter"></i> Twitter
+                    </a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="images/hero-illustration1.png" alt="Ilustracija programera">
+            </div>
+        </div>
+    </section>
+    
+    <!-- O meni -->
+    <section id="about" data-aos="fade-up">
+        <h2>About Me</h2>
+        <p>
+      Hi, I'm Stefan, a 24-year-old passionate frontend developer in the making!<br><br>
+      I discovered coding out of curiosity, but it quickly turned into a true passion. I love building modern, user-friendly websites and I’m always eager to learn new technologies and push my limits.<br><br>
+      I enjoy both teamwork and independent work – it all depends on the people and the project. I truly value patience, support, and clear communication in every collaboration.<br><br>
+      My long-term goal is to join a company that appreciates flexible work, creative thinking, and constant learning. I want to build a career I’m proud of, while also enjoying the journey and sharing my knowledge along the way.
+    </p>
+    </section>
+    
+    <!-- Projekti -->
+<section id="projects" data-aos="zoom-in-up">
+  <h2>Projects</h2>
+  <div class="projects-container">
+
+      <div class="project-card">
+    <img src="images/todo-screenshot.png" alt="To-Do List App Screenshot">
+    <h3>To-Do List App</h3>
+    <p class="project-description">
+      A modern and responsive to-do application. Features: customizable title, task date and time, localStorage persistence, and flexible sorting by name or date.<br>
+      <b>Tech:</b> HTML, CSS, JavaScript
+    </p>
+    <div class="project-links">
+      <a href="projects/todo/index.html" target="_blank">Live Demo</a>
+      <a href="https://github.com/stefanstanojlovic/portfolio/tree/main/projects/todo" target="_blank">GitHub</a>
+    </div>
+      </div>
+
+      <div class="project-card">
+          <img src="images/projekat2.jpg" alt="Second project">
+          <h3>Project Title 2</h3>
+      </div>
+      <div class="project-card">
+          <img src="images/projekat3.jpg" alt="Third project">
+          <h3>Project Title 3</h3>
+      </div>
+  </div>
+      <div class="projects-button">
+        <a href="projects.html" class="all-projects-btn">All Projects</a>
+      </div>
+</section>
+
+<!-- Blog sekcija -->
+<section id="blog" data-aos="zoom-in-up">
+  <h2>Blog</h2>
+  <div class="blogs-container">
+      <div class="blog-card">
+          <img src="images/blog1.jpg" alt="First blog">
+          <h3>How I Started Coding</h3>
+          <p>My journey from beginner to frontend enthusiast. <br><span class="blog-date">June 2025</span></p>
+      </div>
+      <div class="blog-card">
+          <img src="images/blog2.jpg" alt="Second blog">
+          <h3>Tips for Junior Developers</h3>
+          <p>Most important lessons and advice for new programmers. <br><span class="blog-date">May 2025</span></p>
+      </div>
+      <div class="blog-card">
+          <img src="images/blog3.jpg" alt="Third blog">
+          <h3>My Favorite VS Code Extensions</h3>
+          <p>The tools I use every day to boost productivity. <br><span class="blog-date">April 2025</span></p>
+      </div>
+  </div>
+  <div class="blogs-button">
+    <a href="blog.html" class="all-blogs-btn">All Blogs</a>
+  </div>
+</section>
+
+    <!-- Veštine -->
+<section id="skills" data-aos="fade-up"
+     data-aos-duration="3000">
+  <h2>Skills</h2>
+  <div class="skills-icons">
+    <div class="skill">
+      <img src="skills-icons/html.png" alt="HTML">
+      <p>HTML</p>
+    </div>
+    <div class="skill">
+      <img src="skills-icons/css.png" alt="CSS">
+      <p>CSS</p>
+    </div>
+    <div class="skill">
+      <img src="skills-icons/js.png" alt="JavaScript">
+      <p>JavaScript</p>
+    </div>
+    <div class="skill">
+      <img src="skills-icons/github.png" alt="GitHub">
+      <p>GitHub</p>
+    </div>
+    <div class="skill">
+      <img src="skills-icons/vscode.png" alt="VS Code">
+      <p>VS Code</p>
+    </div>
+  </div>
+</section>
+    
+    <!-- Kontakt -->
+<section id="contact" data-aos="fade-up"
+     data-aos-anchor-placement="center-center">
+  <h2>Contact</h2>
+  <p>You can contact me via email or on social media.</p>
+  <form class="contact-form" id="contactForm">
+    <div class="input-row">
+      <div class="input-group">
+        <label for="name">Name</label>
+        <input type="text" id="name" placeholder="Your name" required>
+      </div>
+      <div class="input-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="Your email" required>
+      </div>
+    </div>
+    <label for="message">Message</label>
+    <textarea id="message" placeholder="Your message" required></textarea>
+    <button type="submit">Send</button>
+  </form>
+  <div id="form-message"></div>
+</section>
+
+
+    
+    <!-- Scroll to Top dugme -->
+    <button id="scrollToTop" onclick="scrollToTop()" aria-label="Back to Top">
+        &#8679;
+    </button>
+    
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+
+    <!-- Footer -->
+<footer>
+  <div class="footer-content">
+    <div class="footer-social">
+      <a href="https://facebook.com" target="_blank" aria-label="Facebook">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+      <a href="https://twitter.com" target="_blank" aria-label="Twitter">
+        <i class="fab fa-twitter"></i>
+      </a>
+      <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+      <!-- Možeš dodati još linkova po potrebi -->
+    </div>
+    <p>&copy; <span id="year"></span> Stefan. All rights reserved.</p>
+  </div>
+</footer>
+
+<!-- AOS Animate On Scroll CSS & JS -->
+<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script src="main.js"></script>
+
+</body>
+</html>
