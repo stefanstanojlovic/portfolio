@@ -16,14 +16,15 @@ body {
 }
 
 .calculator {
-  width: 320px;
+  width: 340px;
+  max-width: 98vw;
 }
 
 .calc-display {
   background: #222;
   border-radius: 10px;
   padding: 14px 18px 18px 18px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   letter-spacing: 1.5px;
   min-height: 62px;
   display: flex;
@@ -52,20 +53,65 @@ body {
   margin-top: 3px;
 }
 
+.calc-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 12px;
+  margin-top: 5px;
+  padding-right: 0;
+}
+
+.toolbar-btn {
+  background: #f1f1f1;
+  border: none;
+  border-radius: 7px;
+  font-size: 1em;
+  padding: 6px 9px;
+  margin: 0 2px;
+  cursor: pointer;
+  transition: background 0.15s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.toolbar-btn:active {
+  background: #e2e2e2;
+}
+
+.toolbar-spacer {
+  flex: 1;
+  min-width: 12px;
+}
+
+.backspace-btn {
+  background: #f39c12;
+  color: #fff;
+  font-size: 1.2em;
+  padding: 8px 12px;
+  margin-right: 0;
+}
+
+.backspace-btn:active {
+  background: #d9770a;
+}
+
 .calc-buttons {
   display: grid;
-  grid-template-columns: repeat(4, 64px);
-  grid-gap: 12px;
+  grid-template-columns: repeat(4, 1fr); /* Dugmad automatski popunjavaju širinu */
+  grid-gap: 11px;
 }
 
 .btn {
   background: #f1f1f1;
   border: none;
   border-radius: 8px;
-  font-size: 1.4em;
+  font-size: 1.3em;
   padding: 18px 0;
   cursor: pointer;
-  transition: background 0.18s, box-shadow 0.18s;
+  transition: background 0.15s, box-shadow 0.15s;
   box-shadow: 0 2px 8px rgba(0,0,0,0.04);
 }
 
@@ -81,18 +127,20 @@ body {
   background: #c0392b;
 }
 
-.btn[data-action="equals"], .equals {
-  background: #f39c12;
-  color: #fff;
-  grid-row: span 2;
-  height: 100%;
+.btn.operator {
+  background: #f5d280;
+  color: #6a5400;
 }
-.btn[data-action="equals"]:active, .equals:active {
-  background: #d9770a;
+.btn.operator:active {
+  background: #ffe2a2;
 }
 
-.btn.zero {
-  grid-column: span 2;
+.btn.equals {
+  background: #f39c12;
+  color: #fff;
+}
+.btn.equals:active {
+  background: #d9770a;
 }
 
 @media (max-width: 400px) {
@@ -102,4 +150,108 @@ body {
   .calc-buttons {
     grid-template-columns: repeat(4, 1fr);
   }
+}
+
+/* --------- HISTORY MODAL --------- */
+.history-modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0; top: 0;
+  width: 100vw; height: 100vh;
+  background: rgba(0,0,0,0.35);
+  align-items: center;
+  justify-content: center;
+}
+
+.history-modal.open {
+  display: flex;
+}
+
+.history-content {
+  background: #fff;
+  border-radius: 12px;
+  padding: 24px 22px 12px 22px;
+  min-width: 290px;
+  max-width: 92vw;
+  max-height: 65vh;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.11);
+  overflow-y: auto;
+}
+
+.history-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: bold;
+  font-size: 1.2em;
+  margin-bottom: 8px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 8px;
+}
+
+.close-history {
+  background: none;
+  border: none;
+  font-size: 1.2em;
+  color: #e74c3c;
+  cursor: pointer;
+}
+
+.history-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 45vh;
+  overflow-y: auto;
+}
+
+.history-list li {
+  margin-bottom: 8px;
+  border-bottom: 1px solid #f1f1f1;
+  padding: 7px 2px;
+  font-size: 1em;
+  color: #2e2e2e;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.history-list .history-expression {
+  color: #888;
+  font-size: 0.97em;
+  margin-right: 12px;
+}
+.history-list .history-result {
+  font-weight: bold;
+  color: #333;
+}
+
+.clear-history-btn {
+  margin: 18px auto 0 auto;
+  display: block;
+  background: #e74c3c;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 9px 24px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.clear-history-btn:hover {
+  background: #c0392b;
+}
+
+.toolbar-icon {
+  width: 30px;
+  height: 30px;
+  display: block;
+  margin: 0 auto;
+  object-fit: contain;
+  /* Za lep hover efekat možeš i ovo: */
+  filter: grayscale(30%);
+  transition: filter 0.2s;
+}
+.toolbar-btn:hover .toolbar-icon {
+  filter: grayscale(0%) brightness(1.2);
 }

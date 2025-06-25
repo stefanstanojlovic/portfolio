@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Simple Calculator</title>
+  <title>Advanced Calculator</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -13,30 +13,60 @@
         <div class="calc-expression" id="expression"></div>
         <div class="calc-result" id="display">0</div>
       </div>
+      <div class="calc-toolbar">
+        <button class="toolbar-btn" id="history-btn" title="History">
+  <img src="images/history.png" alt="History" class="toolbar-icon">
+</button>
+<button class="toolbar-btn" id="unit-btn" title="Unit Converter">
+  <img src="images/unit.png" alt="Unit Converter" class="toolbar-icon">
+</button>
+<button class="toolbar-btn" id="sci-btn" title="Scientific Mode">
+  <img src="images/scientific.png" alt="Scientific Mode" class="toolbar-icon">
+</button>
+
+        <div class="toolbar-spacer"></div>
+        <button class="toolbar-btn backspace-btn" id="backspace-btn" title="Backspace">&larr;</button>
+      </div>
       <div class="calc-buttons">
+        <!-- Gornji red -->
         <button class="btn" data-action="clear">C</button>
-        <button class="btn" data-action="divide">÷</button>
-        <button class="btn" data-action="multiply">×</button>
-        <button class="btn" data-action="back">&larr;</button>
-        
+        <button class="btn" data-action="open-paren">(</button>
+        <button class="btn" data-action="close-paren">)</button>
+        <button class="btn" data-action="percent">%</button>
+
+        <!-- Brojevi i operacije -->
         <button class="btn" data-action="7">7</button>
         <button class="btn" data-action="8">8</button>
         <button class="btn" data-action="9">9</button>
-        <button class="btn" data-action="subtract">−</button>
-        
+        <button class="btn operator" data-action="divide">÷</button>
+
         <button class="btn" data-action="4">4</button>
         <button class="btn" data-action="5">5</button>
         <button class="btn" data-action="6">6</button>
-        <button class="btn" data-action="add">+</button>
-        
+        <button class="btn operator" data-action="multiply">×</button>
+
         <button class="btn" data-action="1">1</button>
         <button class="btn" data-action="2">2</button>
         <button class="btn" data-action="3">3</button>
-        <button class="btn equals" data-action="equals">=</button>
-        
-        <button class="btn zero" data-action="0">0</button>
+        <button class="btn operator" data-action="subtract">−</button>
+
+        <button class="btn" data-action="0">0</button>
         <button class="btn" data-action="dot">.</button>
+        <button class="btn operator" data-action="add">+</button>
+        <button class="btn equals" data-action="equals">=</button>
       </div>
+    </div>
+  </div>
+
+  <!-- HISTORY MODAL -->
+  <div class="history-modal" id="history-modal">
+    <div class="history-content">
+      <div class="history-header">
+        <span>History</span>
+        <button class="close-history" id="close-history">&times;</button>
+      </div>
+      <ul class="history-list" id="history-list"></ul>
+      <button class="clear-history-btn" id="clear-history-btn">Clear History</button>
     </div>
   </div>
   <script src="main.js"></script>
