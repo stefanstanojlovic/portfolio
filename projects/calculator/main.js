@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const display = document.getElementById('display');
   const expressionDisplay = document.getElementById('expression');
   const buttons = document.querySelectorAll('.btn');
+  const sciButtons = document.querySelectorAll('.sci-btn');
   const backspaceBtn = document.getElementById('backspace-btn');
 
   // ====== HISTORIJA ======
@@ -78,14 +79,12 @@ document.addEventListener('DOMContentLoaded', () => {
           addOperator('%');
           break;
         case 'plusminus':
-          // +/- dugme
           if (input.length === 0 || lastPressed === '=') {
             if (result !== '0') {
               result = (-parseFloat(result)).toString();
               input = result;
             }
           } else {
-            // promeni znak poslednjeg broja u inputu
             input = input.replace(/([\d.]+)(?!.*[\d.])/, (n) => (-parseFloat(n)).toString());
             result = input.match(/[\d.]+$/) ? input.match(/[\d.]+$/)[0] : '0';
           }
@@ -158,6 +157,83 @@ document.addEventListener('DOMContentLoaded', () => {
     updateDisplay();
   }
 
+  // ==== SCIENTIFIC FUNCTIONS HANDLER ====
+  function applyScientific(action) {
+    let value = Number(result);
+    let displayFunc = '';
+    switch (action) {
+      case "sqrt":
+        displayFunc = `√(${result})`;
+        value = value >= 0 ? Math.sqrt(value) : 'Error';
+        break;
+      case "x2":
+        displayFunc = `sqr(${result})`;
+        value = value * value;
+        break;
+      case "inv":
+        displayFunc = `1/(${result})`;
+        value = value !== 0 ? 1 / value : 'Error';
+        break;
+      case "sin":
+        displayFunc = `sin(${result})`;
+        value = Math.sin(toRadians(value));
+        break;
+      case "cos":
+        displayFunc = `cos(${result})`;
+        value = Math.cos(toRadians(value));
+        break;
+      case "tan":
+        displayFunc = `tan(${result})`;
+        value = Math.tan(toRadians(value));
+        break;
+      case "ln":
+        displayFunc = `ln(${result})`;
+        value = value > 0 ? Math.log(value) : 'Error';
+        break;
+      case "log":
+        displayFunc = `log(${result})`;
+        value = value > 0 ? Math.log10(value) : 'Error';
+        break;
+      case "exp":
+        displayFunc = `e^(${result})`;
+        value = Math.exp(value);
+        break;
+      case "abs":
+        displayFunc = `|${result}|`;
+        value = Math.abs(value);
+        break;
+      case "pi":
+        displayFunc = `π`;
+        value = Math.PI;
+        break;
+      case "e":
+        displayFunc = `e`;
+        value = Math.E;
+        break;
+      case "xy":
+      case "swap":
+      case "rad":
+        return;
+      default:
+        return;
+    }
+
+    // === Sačuvaj u istoriju, bilo da je Error ili dobar rezultat ===
+    result = value !== undefined && value !== 'Error' && !isNaN(value)
+      ? value.toString() : 'Error';
+
+    history.unshift({ expression: displayFunc, result: result });
+    if (history.length > 30) history.pop();
+    localStorage.setItem('calcHistory', JSON.stringify(history));
+    input = displayFunc;
+    lastPressed = '=';
+    updateDisplay();
+  }
+
+  function toRadians(degrees) {
+    return degrees * Math.PI / 180;
+  }
+
   // Dugme za brisanje ("backspace")
   backspaceBtn.addEventListener('click', () => {
     if (input.length > 0 && lastPressed !== '=') {
@@ -170,14 +246,22 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Sva dugmad za kalkulator
+  // Standardne tipke
   buttons.forEach(btn => {
     btn.addEventListener('click', () => {
       handleButton(btn.dataset.action);
     });
   });
 
-  // Dummy dugmad - istorija, unit converter
+  // SCIENTIFIC tipke
+  sciButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const action = btn.dataset.action;
+      applyScientific(action);
+    });
+  });
+
+  // Dummy dugmad - unit converter, swap, rad mode (za kasnije)
   document.getElementById('unit-btn').addEventListener('click', () => {});
   
   // SCIENTIFIC MODE: Prikaži/skrivaj stub
@@ -225,3 +309,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
   updateDisplay();
 });
+// ====== END OF CALCULATOR LOGIC ======
