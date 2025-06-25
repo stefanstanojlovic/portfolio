@@ -18,6 +18,7 @@ body {
 .calculator {
   width: 340px;
   max-width: 98vw;
+  transition: width 0.25s;
 }
 
 .calc-display {
@@ -103,7 +104,6 @@ body {
   min-width: 12px;
 }
 
-/* Backspace kao siva kružna ikona */
 .backspace-btn {
   background: #ececec;
   border-radius: 50%;
@@ -112,6 +112,48 @@ body {
 }
 .backspace-btn:active {
   background: #d1d1d1;
+}
+
+.calc-body {
+  display: flex;
+  align-items: flex-start;
+  transition: width 0.25s;
+}
+
+/* SCIENTIFIC BUTTONS */
+.sci-buttons {
+  display: none;
+  flex-direction: column;
+  flex-wrap: wrap;
+  max-height: 340px;
+  min-width: 135px;
+  margin-right: 12px;
+  justify-content: center;
+  gap: 10px 12px;
+  transition: opacity 0.2s;
+}
+
+.sci-buttons.active {
+  display: flex;
+}
+
+.sci-btn {
+  background: #ececec;
+  border: none;
+  border-radius: 21px / 16px;
+  font-size: 1.08em;
+  color: #3e3e3e;
+  width: 68px;
+  height: 37px;
+  margin-bottom: 3px;
+  margin-right: 2px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.12s, color 0.12s;
+}
+
+.sci-btn:active {
+  background: #dbdbdb;
 }
 
 /* ----- Dugmad kalkulatora ----- */
@@ -162,7 +204,6 @@ body {
   background: #f0f0f0;
 }
 
-/* Operacije */
 .btn.operator {
   background: #9c9c9c;
   color: #fff;
@@ -171,7 +212,6 @@ body {
   background: #787878;
 }
 
-/* Dugme jednako (=) */
 .btn.equals {
   background: #38b000;
   color: #fff;
@@ -182,12 +222,12 @@ body {
   background: #258900;
 }
 
-/* Popravka za mobilne ekrane */
-@media (max-width: 420px) {
+@media (max-width: 700px) {
   .calculator-container { padding: 9vw 0 4vw 0; }
-  .calculator { width: 99vw; }
-  .calc-buttons { grid-template-columns: repeat(4, 1fr); }
-  .btn { width: 16vw; height: 16vw; min-width: 48px; min-height: 48px; font-size: 1.07em;}
+  .calculator { width: 99vw !important; }
+  .calc-body { flex-direction: column; }
+  .sci-buttons { flex-direction: row; max-height: none; min-width: 0; margin-right: 0; margin-bottom: 15px; gap: 9px 3px; justify-content: flex-start;}
+  .btn, .sci-btn { width: 16vw; height: 16vw; min-width: 48px; min-height: 48px; font-size: 1.07em;}
 }
 
 /* --------- HISTORY MODAL --------- */

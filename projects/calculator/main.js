@@ -6,7 +6,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ====== HISTORIJA ======
   let history = [];
-  // Load history from localStorage on page load
   if (localStorage.getItem('calcHistory')) {
     try {
       history = JSON.parse(localStorage.getItem('calcHistory')) || [];
@@ -78,6 +77,20 @@ document.addEventListener('DOMContentLoaded', () => {
         case 'percent':
           addOperator('%');
           break;
+        case 'plusminus':
+          // +/- dugme
+          if (input.length === 0 || lastPressed === '=') {
+            if (result !== '0') {
+              result = (-parseFloat(result)).toString();
+              input = result;
+            }
+          } else {
+            // promeni znak poslednjeg broja u inputu
+            input = input.replace(/([\d.]+)(?!.*[\d.])/, (n) => (-parseFloat(n)).toString());
+            result = input.match(/[\d.]+$/) ? input.match(/[\d.]+$/)[0] : '0';
+          }
+          updateDisplay();
+          break;
         case 'open-paren':
           if (
             input === '' ||
@@ -110,7 +123,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             let calc = Function(`'use strict';return (${expr})`)();
             result = (calc !== undefined && calc !== null) ? calc.toString() : '0';
-            // === Sačuvaj u istoriju: ===
             if (input && result !== 'Error') {
               history.unshift({ expression: input, result: result });
               if (history.length > 30) history.pop();
@@ -152,7 +164,6 @@ document.addEventListener('DOMContentLoaded', () => {
       if (input.slice(-1) === '(') openParens--;
       if (input.slice(-1) === ')') openParens++;
       input = input.slice(0, -1);
-      // Update result preview
       let numMatch = input.match(/[\d.]+$/);
       result = numMatch ? numMatch[0] : '0';
       updateDisplay();
@@ -166,12 +177,17 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Dummy dugmad - istorija, unit converter, scientific (trenutno bez funkcije)
-  document.getElementById('unit-btn').addEventListener('click', () => {
-    // todo: prikazi unit converter
-  });
-  document.getElementById('sci-btn').addEventListener('click', () => {
-    // todo: prikazi scientific kalkulator
+  // Dummy dugmad - istorija, unit converter
+  document.getElementById('unit-btn').addEventListener('click', () => {});
+  
+  // SCIENTIFIC MODE: Prikaži/skrivaj stub
+  const sciBtnToggle = document.getElementById('sci-btn');
+  const sciPanel = document.getElementById('sci-buttons');
+  let sciMode = false;
+  sciBtnToggle.addEventListener('click', () => {
+    sciMode = !sciMode;
+    sciPanel.classList.toggle('active', sciMode);
+    document.querySelector('.calculator').style.width = sciMode ? '520px' : '340px';
   });
 
   // === HISTORIJA MODAL ===

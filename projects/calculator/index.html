@@ -14,39 +14,66 @@
         <div class="calc-result" id="display">0</div>
       </div>
       <div class="calc-toolbar">
-        <button class="toolbar-btn" id="history-btn"><img src="images/history.png" alt="History" class="toolbar-icon"></button>
-        <button class="toolbar-btn" id="unit-btn"><img src="images/unit.png" alt="Unit Converter" class="toolbar-icon"></button>
-        <button class="toolbar-btn" id="sci-btn"><img src="images/scientific.png" alt="Scientific" class="toolbar-icon"></button>
-    <div class="toolbar-spacer"></div>
-        <button class="toolbar-btn backspace-btn" id="backspace-btn"><img src="images/backspace.png" alt="Backspace" class="toolbar-icon"></button>
+        <button class="toolbar-btn" id="history-btn" title="History">
+          <img src="images/history.png" alt="History" class="toolbar-icon">
+        </button>
+        <button class="toolbar-btn" id="unit-btn" title="Unit Converter">
+          <img src="images/unit.png" alt="Unit Converter" class="toolbar-icon">
+        </button>
+        <button class="toolbar-btn" id="sci-btn" title="Scientific Mode">
+          <img src="images/scientific.png" alt="Scientific" class="toolbar-icon">
+        </button>
+        <div class="toolbar-spacer"></div>
+        <button class="toolbar-btn backspace-btn" id="backspace-btn" title="Backspace">
+          <img src="images/backspace.png" alt="Backspace" class="toolbar-icon">
+        </button>
       </div>
-      <div class="calc-buttons">
-        <!-- Gornji red -->
-        <button class="btn" data-action="clear">C</button>
-        <button class="btn" data-action="open-paren">(</button>
-        <button class="btn" data-action="close-paren">)</button>
-        <button class="btn" data-action="percent">%</button>
+      <div class="calc-body">
+        <!-- SCIENTIFIC BUTTONS -->
+        <div class="sci-buttons" id="sci-buttons">
+          <button class="sci-btn" data-action="swap">↔</button>
+          <button class="sci-btn" data-action="rad">Rad</button>
+          <button class="sci-btn" data-action="sqrt">√</button>
+          <button class="sci-btn" data-action="sin">sin</button>
+          <button class="sci-btn" data-action="cos">cos</button>
+          <button class="sci-btn" data-action="tan">tan</button>
+          <button class="sci-btn" data-action="ln">ln</button>
+          <button class="sci-btn" data-action="log">log</button>
+          <button class="sci-btn" data-action="inv">1/x</button>
+          <button class="sci-btn" data-action="exp">eˣ</button>
+          <button class="sci-btn" data-action="x2">x²</button>
+          <button class="sci-btn" data-action="xy">xʸ</button>
+          <button class="sci-btn" data-action="abs">|x|</button>
+          <button class="sci-btn" data-action="pi">π</button>
+          <button class="sci-btn" data-action="e">e</button>
+        </div>
+        <!-- STANDARD BUTTONS -->
+        <div class="calc-buttons">
+          <button class="btn" data-action="clear">C</button>
+          <button class="btn" data-action="open-paren">(</button>
+          <button class="btn" data-action="close-paren">)</button>
+          <button class="btn" data-action="percent">%</button>
 
-        <!-- Brojevi i operacije -->
-        <button class="btn" data-action="7">7</button>
-        <button class="btn" data-action="8">8</button>
-        <button class="btn" data-action="9">9</button>
-        <button class="btn operator" data-action="divide">÷</button>
+          <button class="btn" data-action="7">7</button>
+          <button class="btn" data-action="8">8</button>
+          <button class="btn" data-action="9">9</button>
+          <button class="btn operator" data-action="divide">÷</button>
 
-        <button class="btn" data-action="4">4</button>
-        <button class="btn" data-action="5">5</button>
-        <button class="btn" data-action="6">6</button>
-        <button class="btn operator" data-action="multiply">×</button>
+          <button class="btn" data-action="4">4</button>
+          <button class="btn" data-action="5">5</button>
+          <button class="btn" data-action="6">6</button>
+          <button class="btn operator" data-action="multiply">×</button>
 
-        <button class="btn" data-action="1">1</button>
-        <button class="btn" data-action="2">2</button>
-        <button class="btn" data-action="3">3</button>
-        <button class="btn operator" data-action="subtract">−</button>
+          <button class="btn" data-action="1">1</button>
+          <button class="btn" data-action="2">2</button>
+          <button class="btn" data-action="3">3</button>
+          <button class="btn operator" data-action="subtract">−</button>
 
-        <button class="btn" data-action="0">0</button>
-        <button class="btn" data-action="dot">.</button>
-        <button class="btn operator" data-action="add">+</button>
-        <button class="btn equals" data-action="equals">=</button>
+          <button class="btn" data-action="plusminus">+/-</button>
+          <button class="btn" data-action="0">0</button>
+          <button class="btn" data-action="dot">.</button>
+          <button class="btn equals" data-action="equals">=</button>
+        </div>
       </div>
     </div>
   </div>
