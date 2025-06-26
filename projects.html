@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All Projects | Stefan</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<!-- Navigacija kao na glavnoj stranici -->
+<header>
+    <nav>
+        <ul>
+            <li><a href="index.html#hero"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="index.html#about"><i class="fas fa-user"></i> About Me</a></li>
+            <li><a href="projects.html"><i class="fas fa-code"></i> Projects</a></li>
+            <li><a href="index.html#skills"><i class="fas fa-tools"></i> Skills</a></li>
+            <li><a href="index.html#blog"><i class="fas fa-blog"></i> Blog</a></li>
+            <li><a href="index.html#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+        </ul>
+    </nav>
+    <button id="hamburger" aria-label="Open navigation">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+</header>
+
+<section class="all-projects-section" data-aos="fade-up">
+  <h2>All Projects</h2>
+  <div class="projects-container">
+
+    <div class="project-card">
+      <a href="projects/todo/index.html" target="_blank">
+        <img src="images/todo-screenshot.png" alt="To-Do List App Screenshot">
+      </a>
+      <h3>To-Do List App</h3>
+      <p class="project-description">
+        A modern and responsive to-do application. Features: customizable title, task date and time, localStorage persistence, and flexible sorting by name or date.<br>
+        <b>Tech:</b> HTML, CSS, JavaScript
+      </p>
+    </div>
+
+    <div class="project-card">
+      <a href="projects/calculator/index.html" target="_blank">
+        <img src="images/calculator-screenshot.png" alt="Calculator App Screenshot">
+      </a>
+      <h3>Calculator Web App</h3>
+      <p class="project-description">
+        A minimalistic and responsive web calculator application. Features: clean interface, calculation history, icon-based controls, and full support for basic math operations.<br>
+        <b>Tech:</b> HTML, CSS, JavaScript
+      </p>
+    </div>
+
+    <div class="project-card">
+      <a href="projects/weather/index.html" target="_blank">
+        <img src="images/weather-screenshot.png" alt="Weather App Screenshot">
+      </a>
+      <h3>Weather App</h3>
+      <p class="project-description">
+        A modern weather application. Enter a city or use your location to view the current weather, detailed conditions (wind, pressure, humidity, etc.), and 5-day forecast.<br>
+        <b>Tech:</b> HTML, CSS, JavaScript, OpenWeatherMap API
+      </p>
+    </div>
+
+    <!-- Dodaj nove projekte istim stilom ovde! -->
+
+  </div>
+</section>
+
+<!-- Scroll to Top dugme -->
+<button id="scrollToTop" onclick="scrollToTop()" aria-label="Back to Top">
+    &#8679;
+</button>
+
+<script>
+    function scrollToTop() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+</script>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-content">
+    <div class="footer-social">
+      <a href="https://facebook.com" target="_blank" aria-label="Facebook">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+      <a href="https://twitter.com" target="_blank" aria-label="Twitter">
+        <i class="fab fa-twitter"></i>
+      </a>
+      <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+    </div>
+    <p>&copy; <span id="year"></span> Stefan. All rights reserved.</p>
+  </div>
+</footer>
+
+<!-- AOS Animate On Scroll CSS & JS -->
+<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script src="main.js"></script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('year').textContent = new Date().getFullYear();
+  });
+</script>
+
+</body>
+</html>

@@ -637,3 +637,12 @@ all-projects-btn {
   font-size: 15px;
   margin: 10px 0 0 0;
 }
+
+.all-projects-section .projects-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+  overflow-x: unset;
+  padding-bottom: 40px;
+}
