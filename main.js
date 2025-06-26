@@ -1,77 +1,84 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', () => {
+  // === AOS animacije ===
+  if (window.AOS) {
+    AOS.init({
+      duration: 800,
+      once: true
+    });
+  }
+
+  // === EmailJS forma ===
   const form = document.getElementById('contactForm');
   const formMessage = document.getElementById('form-message');
+  if (window.emailjs && form) {
+    emailjs.init("kbXGOqL_rc-m4FXI_");
 
-  AOS.init({
-  duration: 800,   // trajanje animacije u ms
-  once: true       // animiraj samo prvi put kad sekcija uđe u viewport
-});
-  
-  // Inicijalizacija EmailJS sa tvojim Public Key-em
-  emailjs.init("kbXGOqL_rc-m4FXI_");
+    form.addEventListener('submit', e => {
+      e.preventDefault();
 
-  form.addEventListener('submit', function(e) {
-    e.preventDefault();
+      const name = form.name.value.trim();
+      const email = form.email.value.trim();
+      const message = form.message.value.trim();
 
-    const name = document.getElementById('name').value.trim();
-    const email = document.getElementById('email').value.trim();
-    const message = document.getElementById('message').value.trim();
+      // Prosta validacija
+      if (!name || !email || !message) {
+        showFormMessage("Please fill in all fields!", "red");
+        return;
+      }
 
-    // Prosta validacija
-    if (!name || !email || !message) {
-      formMessage.textContent = "Please fill in all fields!";
-      formMessage.style.color = "red";
-      return;
-    }
+      // Regex za email
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailPattern.test(email)) {
+        showFormMessage("Please enter a valid email!", "red");
+        return;
+      }
 
-    // Regex za email
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailPattern.test(email)) {
-      formMessage.textContent = "Please enter a valid email!";
-      formMessage.style.color = "red";
-      return;
-    }
-
-    // Slanje poruke putem EmailJS
-    emailjs.send("service_znptxua", "template_lac7pda", {
-        name: name,
-        email: email,
-        message: message
-    })
-    .then(function() {
-      formMessage.textContent = "Message sent successfully!";
-      formMessage.style.color = "green";
-      form.reset();
-    }, function(error) {
-      formMessage.textContent = "An error occurred, please try again!";
-      formMessage.style.color = "red";
+      // Slanje poruke
+      emailjs.send("service_znptxua", "template_lac7pda", { name, email, message })
+        .then(() => {
+          showFormMessage("Message sent successfully!", "green");
+          form.reset();
+        })
+        .catch(() => {
+          showFormMessage("An error occurred, please try again!", "red");
+        });
     });
-  });
-});
 
-// Hamburger meni logika
-document.addEventListener('DOMContentLoaded', function() {
+    function showFormMessage(msg, color) {
+      formMessage.textContent = msg;
+      formMessage.style.color = color;
+    }
+  }
+
+  // === Hamburger meni logika ===
   const hamburger = document.getElementById('hamburger');
   const nav = document.querySelector('nav');
-  const links = document.querySelectorAll('nav ul li a');
-
-  hamburger.addEventListener('click', function() {
-    nav.classList.toggle('open');
-    document.body.classList.toggle('menu-open');
-    hamburger.classList.toggle('open');
-  });
-
-  // Kada klikneš link iz menija, zatvori meni (na mobilnom)
-  links.forEach(link => {
-    link.addEventListener('click', function() {
-      nav.classList.remove('open');
-      document.body.classList.remove('menu-open');
+  if (hamburger && nav) {
+    hamburger.addEventListener('click', () => {
+      nav.classList.toggle('open');
+      document.body.classList.toggle('menu-open');
+      hamburger.classList.toggle('open');
     });
-  });
 
-});
+    // Zatvaranje menija na klik linka (mobilni)
+    nav.querySelectorAll('ul li a').forEach(link => {
+      link.addEventListener('click', () => {
+        nav.classList.remove('open');
+        document.body.classList.remove('menu-open');
+        hamburger.classList.remove('open');
+      });
+    });
+  }
 
-// Automatski prikaz godine u footeru
-document.addEventListener('DOMContentLoaded', function() {
-  document.getElementById('year').textContent = new Date().getFullYear();
+  // === Dinamička godina u footeru ===
+  const yearEl = document.getElementById('year');
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+  // === Scroll to top dugme (ako koristiš JS umesto HTML onClick) ===
+  const scrollToTopBtn = document.getElementById('scrollToTop');
+  if (scrollToTopBtn) {
+    scrollToTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
 });
