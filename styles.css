@@ -486,3 +486,42 @@ footer p {
   overflow-x: unset;
   padding-bottom: 40px;
 }
+
+.project-buttons {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 12px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 18px;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: none;
+  text-decoration: none;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.18s, color 0.18s;
+}
+
+.btn-live {
+  background: #0077b5;
+  color: #fff;
+}
+
+.btn-live:hover {
+  background: #014b7a;
+}
+
+.btn-github {
+  background: #23272b;
+  color: #fff;
+}
+
+.btn-github:hover {
+  background: #000;
+}
