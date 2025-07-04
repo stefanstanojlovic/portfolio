@@ -229,12 +229,15 @@ section:not(#hero) p {
   transform: translateY(-5px);
   box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
+
 .blog-card img {
-  width: 480px;
-  height: 270px;
-  object-fit: cover;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
   display: block;
+  border-radius: 10px 10px 0 0;
 }
+
 .blog-date { color: #aaa; font-size: 14px; }
 .blogs-button {
   width: 100%;
