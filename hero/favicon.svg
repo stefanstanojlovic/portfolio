@@ -1,0 +1,22 @@
+<<<<<<< HEAD
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <rect width="100" height="100" fill="#121f29"/>
+  <text x="50%" y="55%" dominant-baseline="middle" text-anchor="middle"
+        font-family="Poppins, Arial, sans-serif"
+        font-size="70"
+        fill="blue"
+        font-weight="700">
+    S
+  </text>
+=======
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <rect width="100" height="100" fill="#121f29"/>
+  <text x="50%" y="55%" dominant-baseline="middle" text-anchor="middle"
+        font-family="Poppins, Arial, sans-serif"
+        font-size="70"
+        fill="blue"
+        font-weight="700">
+    S
+  </text>
+>>>>>>> 93d18035e18ccc612fc842677a0a9bbaca342a75
+</svg>
