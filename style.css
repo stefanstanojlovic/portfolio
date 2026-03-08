@@ -268,19 +268,16 @@ nav h1 {
 
     display: flex;
     gap: 80px;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
     margin: 125px;
-    margin-top: 0;
-    margin-bottom: 80px;
-
 }
 
 #projects img {
 
-    width: 500px;
+    width: 100%;
+    max-width: 500px;
     border-radius: 15px;
-
 }
 
 .project-text {
@@ -292,13 +289,28 @@ nav h1 {
 .project-img {
 
     flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    height: 100%;
 
+}
+
+.project:nth-of-type(even) .project-img {
+
+    justify-content: flex-start;
+}
+
+.project-img img {
+
+    display: block;
 }
 
 .project-text h4 {
 
     font-size: 24px;
     margin-bottom: 15px;
+    margin-top: 0;
 
 }
 
@@ -324,7 +336,7 @@ nav h1 {
 
     display: flex;
     gap: 20px;
-    margin-top: 20px;
+    margin-top: 15px;
     align-items: center;
 
 }
